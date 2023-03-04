@@ -13,10 +13,10 @@ const firebaseConfig = {
     measurementId: "G-2BWJGV6YRS"
 }
 
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig)
 const analytics = getAnalytics(app)
 
-const db = getFirestore(app);z
+const db = getFirestore(app)
 const auth = getAuth()
 
 export class Database {
@@ -48,5 +48,34 @@ export class Database {
             const errorMessage = error.message;
             alert(errorMessage)
         });
+    }
+
+    async getData(name) {
+        this.name = name
+        const querySnapshot = await getDocs(collection(db, name));
+        // document.getElementById("container").innerHTML = ""
+        querySnapshot.forEach((doc) => {
+            const data = doc.data()
+            console.log(data.name);
+
+            const block = document.createElement("div")
+            block.id = "block"
+            // const detailBlock = document.createElement("div")
+            // detailBlock.id = "detailBlock"
+
+            var name = data.name
+            var author = data.author
+            var price = data.price
+            var unit = data.unit
+
+            var details = document.createElement('ul')
+            details.id = "details"
+            details.innerHTML = `<li><strong>${name}</strong></li> <li><strong>${author}</strong></li> <li>${price} ${unit}</li>`
+
+            block.appendChild(details)
+
+            document.getElementById("container").appendChild(block)
+        });
+
     }
 }
