@@ -1,0 +1,29 @@
+ul {
+    list-style-type: none;
+}
+
+li {
+    padding: 5px;
+}
+
+p {
+    padding: 0 0 0 5px;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.user-item {
+    background: rgb(254, 254, 254);
+    padding: 12px;
+    width: 400px;
+    height: 700px;
+    margin: 12px;
+    word-wrap: break-word;
+}
+
+body {
+    background-color: rgb(242, 242, 240);
+}
