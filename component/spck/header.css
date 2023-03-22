@@ -1,0 +1,165 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#search{ 
+    padding: 15px 40px;
+    display:inline-block;
+        border-radius: 100px;}
+
+body{
+    font-family: "Lato", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #777;
+    padding: 70px;
+}
+li {
+    list-style: none;
+  }
+  
+  /* header */
+  nav {
+    padding: 15px;
+    width: 100%;
+    display: flex;
+    background: rgba(126, 213, 111, 0.6), rgba(40,180,131,0.6);
+  }
+  
+  nav .content-nav {
+    display: flex;
+    line-height: 2rem;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 60%;
+  }
+  
+  nav .content-nav ul {
+    display: flex;
+  }
+  
+  nav .content-nav ul li a {
+    text-decoration: none;
+    color: #43433e;
+    text-transform: uppercase;
+    padding: 0 15px;
+    font-weight: 800;
+  }
+  
+  nav .content-nav ul li a:hover {
+    color: #fff;
+  }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.header{
+    height: 95vh;
+    background-image: linear-gradient(to right bottom ,rgba(126, 213, 111, 0.6), rgba(40,180,131,0.6)) ,
+     url("https://niemvuilaptrinh.ams3.cdn.digitaloceanspaces.com/thu-hanh-tao-website/du-an-web.jpg");
+    background-size: cover;
+    background-position: bottom;
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    position: relative;
+}
+
+.logo{
+    position: absolute;
+    top: 40px;
+    left: 20px;
+}
+.logo img{
+    height: 100px;
+}
+
+.container{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.heading{
+    color: #fff;
+    text-transform: uppercase;
+
+    backface-visibility: hidden;
+    margin-bottom: 60px;
+}
+
+.heading-title{
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 33px;
+    animation-name: hieu-ung-di-chuyen-sang-trai;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+}
+
+.heading-sub{
+    display: block;
+    font-size: 20px;
+    letter-spacing: 12px;
+    animation-name: hieu-ung-di-chuyen-sang-phai;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+}
+
+@keyframes hieu-ung-di-chuyen-sang-trai{
+    0%{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    80%{
+        transform: translateX(15px);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes hieu-ung-di-chuyen-sang-phai{
+    0%{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    80%{
+        transform: translateX(-15px);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.btn:link,
+.btn-visited{
+    text-decoration: none;
+    padding: 15px 40px;
+    display:inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: relative;
+
+}
+.btn:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+.btn:active{
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+.btn-white{
+    background-color: #fff;
+    color: #777;
+}
+
+
