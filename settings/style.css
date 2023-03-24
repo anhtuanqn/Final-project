@@ -27,3 +27,13 @@ p {
 body {
     background-color: rgb(242, 242, 240);
 }
+
+.editBtn {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+}
+
+.content {
+    position: relative;
+}

@@ -3,16 +3,15 @@ const db = new Database
 
 db.getDataForEdit("sách")
 
-
 $(document).on("click", ".edit-btn", function() {
     var item = $(this).closest(".user-item");
-    var name = item.find("li:eq(0)").text().replace("Name: ", "");
-    var author = item.find("li:eq(1)").text().replace("Name: ", "");
-    var publisher = item.find("li:eq(2)").text().replace("Name: ", "");
-    var category = item.find("li:eq(3)").text().replace("Name: ", "");
-    var desciption = item.find("li:eq(4)").text().replace("Name: ", "");
-    var price = item.find("li:eq(5)").text().replace("Name: ", "");
-    var url = item.find("li:eq(6)").text().replace("Name: ", "");
+    var name = item.find("li:eq(0)").text()
+    var author = item.find("li:eq(1)").text()
+    var publisher = item.find("li:eq(2)").text()
+    var category = item.find("li:eq(3)").text()
+    var desciption = item.find("li:eq(4)").text()
+    var price = item.find("li:eq(5)").text()
+    var url = item.find("li:eq(6)").text()
     item.find("li:eq(0)").html("<input type='text' class='form-control' value='" + name + "'>");
     item.find("li:eq(1)").html("<input type='text' class='form-control' value='" + author + "'>");
     item.find("li:eq(2)").html("<input type='text' class='form-control' value='" + publisher + "'>");
@@ -32,7 +31,7 @@ $(document).on("click", ".save-btn", function() {
     var desciption = item.find("li:eq(4) input").val();
     var price = item.find("li:eq(5) input").val();
     var url = item.find("li:eq(6) input").val()
-    var id = item.find("li:eq(7)").text().replace("Name: ", "");
+    var id = item.find("li:eq(7)").text()
     item.find("li:eq(0)").text(name);
     item.find("li:eq(1)").text(author);
     item.find("li:eq(2)").text(publisher);
@@ -50,4 +49,11 @@ $(document).on("click", ".save-btn", function() {
         url: url,
         category: category
     })
+});
+
+$(document).on("click", ".delete-btn", function() {
+    var item = $(this).closest(".user-item");
+    var id = item.find("li:eq(7)").text()
+    $(this).closest('.content').remove();
+    db.deleteDocs("sách", id)
 });

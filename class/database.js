@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-analytics.js";
-import { doc, getFirestore, collection, getDocs, addDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js"
+import { doc, getFirestore, collection, getDocs, addDoc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js"
 import { getAuth, signInWithEmailAndPassword ,createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
 
 const firebaseConfig = {
@@ -69,7 +69,7 @@ export class Database {
             var desciption = data.desciption
             var url = data.url
             var publisher = data.publisher
-            dataHTML += `<ul class='user-item'><strong>Name: <li></strong>${name}</li><strong>Author: <li></strong>${author}</li><strong>Publisher: <li></strong>${publisher}</li><strong>Category: <li></strong>${category}</li><strong>Desciption: <li></strong>${desciption}</li><strong>Price: <li></strong>${price}</li><p>${unit}</p><strong>Image Url: <li></strong>${url}</li><strong>ID: <li></strong>${doc.id}</li><div class="editBtn"><button class='btn edit-btn btn-warning'>Edit</button><button class='delete-btn btn btn-danger'>Delete</button></div></ul>`
+            dataHTML += `<div class="content"><ul class='user-item'><strong>Name: <li></strong>${name}</li><strong>Author: <li></strong>${author}</li><strong>Publisher: <li></strong>${publisher}</li><strong>Category: <li></strong>${category}</li><strong>Desciption: <li></strong>${desciption}</li><strong>Price: <li></strong>${price}</li><p>${unit}</p><strong>Image Url: <li></strong>${url}</li><strong>ID: <li></strong>${doc.id}</li><div class="editBtn"><button class='btn edit-btn btn-warning'>Edit</button><button class='delete-btn btn btn-danger'>Delete</button></div></ul></div>`
 
             tbodyEl.innerHTML = dataHTML
         });
@@ -81,6 +81,17 @@ export class Database {
         try {
             await updateDoc(doc(db, name, id), objectData)
             console.log("Success")
+        } catch(e) {
+            console.error(e)
+        }
+    }
+
+    async deleteDocs(name, id) {
+        this.name = name;
+        this.id = id;
+        try {
+            await deleteDoc(doc(db, name, id))
+            console.log("Deleted")
         } catch(e) {
             console.error(e)
         }
